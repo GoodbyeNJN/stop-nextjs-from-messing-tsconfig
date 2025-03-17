@@ -1,0 +1,40 @@
+{
+    "name": "stop-nextjs-from-messing-tsconfig",
+    "version": "1.0.0",
+    "description": "A simple script to stop Next.js from messing with your tsconfig.json file.",
+    "keywords": [
+        "Next.js",
+        "tsconfig"
+    ],
+    "license": "MIT",
+    "author": "GoodbyeNJN <cc@fuckwall.cc>",
+    "homepage": "https://github.com/GoodbyeNJN/stop-nextjs-from-messing-tsconfig",
+    "bugs": {
+        "url": "https://github.com/GoodbyeNJN/stop-nextjs-from-messing-tsconfig/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GoodbyeNJN/stop-nextjs-from-messing-tsconfig.git"
+    },
+    "type": "module",
+    "bin": {
+        "stop-nextjs-from-messing-tsconfig": "bin/index.js"
+    },
+    "files": [
+        "bin"
+    ],
+    "scripts": {
+        "build": "rolldown -c rolldown.config.ts"
+    },
+    "dependencies": {
+        "package-manager-detector": "^1.1.0"
+    },
+    "devDependencies": {
+        "@goodbyenjn/eslint-config": "^4.1.1",
+        "@types/node": "^22.13.10",
+        "eslint": "^9.22.0",
+        "prettier": "^3.5.3",
+        "rolldown": "1.0.0-beta.6",
+        "typescript": "^5.8.2"
+    }
+}
