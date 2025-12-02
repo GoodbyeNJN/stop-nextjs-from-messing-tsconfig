@@ -100,9 +100,10 @@ const patch: Patcher = async (pkg, temp) => {
         {
             filepath: "dist/esm/lib/typescript/writeConfigurationDefaults.js",
             handler: (content: string) => {
-                const search = "await fs.writeFile(tsConfigPath,";
-                const original = /^(\s*)(await fs\.writeFile\(tsConfigPath,)/gm;
-                const patched = /^(\s*)\/\/ (await fs\.writeFile\(tsConfigPath,)/gm;
+                const search = "writeFile or writeFileSync";
+                const original = /^(\s*)((?:await )?(?:fs\.)?writeFile(?:Sync)?\(.*stringify\()/gm;
+                const patched =
+                    /^(\s*)\/\/ ((?:await )?(?:fs\.)?writeFile(?:Sync)?\(.*stringify\()/gm;
                 if (!original.test(content)) {
                     if (patched.test(content)) {
                         console.log("✅ File already patched, skipping ...");
@@ -119,9 +120,11 @@ const patch: Patcher = async (pkg, temp) => {
         {
             filepath: "dist/lib/typescript/writeConfigurationDefaults.js",
             handler: (content: string) => {
-                const search = "await _fs.promises.writeFile(tsConfigPath,";
-                const original = /^(\s*)(await _fs\.promises\.writeFile\(tsConfigPath,)/gm;
-                const patched = /^(\s*)\/\/ (await _fs\.promises\.writeFile\(tsConfigPath,)/gm;
+                const search = "writeFile or writeFileSync";
+                const original =
+                    /^(\s*)((?:await )?(?:\(0, )?(?:_fs\.)?(?:promises\.)?writeFile(?:Sync)?(?:\))?\(.*stringify\()/gm;
+                const patched =
+                    /^(\s*)\/\/ ((?:await )?(?:\(0, )?(?:_fs\.)?(?:promises\.)?writeFile(?:Sync)?(?:\))?\(.*stringify\()/gm;
                 if (!original.test(content)) {
                     if (patched.test(content)) {
                         console.log("✅ File already patched, skipping ...");
