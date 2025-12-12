@@ -1,6 +1,6 @@
 {
     "name": "stop-nextjs-from-messing-tsconfig",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A simple script to stop Next.js from messing with your tsconfig.json file.",
     "keywords": [
         "Next.js",
