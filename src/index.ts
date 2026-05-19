@@ -9,7 +9,7 @@ import { detect } from "package-manager-detector";
 type Patcher = (pkg: string, dir: string) => Promise<void>;
 type Runner = (pkg: string, fn: Patcher) => Promise<void>;
 
-const $ = (command: string) =>
+const $ = async (command: string) =>
     new Promise<{ stdout: string; stderr: string }>((resolve, reject) => {
         exec(command, (error, stdout, stderr) => {
             if (error) {
@@ -185,4 +185,4 @@ const run: Runner = async (...params) => {
     }
 };
 
-run("next", patch);
+await run("next", patch);

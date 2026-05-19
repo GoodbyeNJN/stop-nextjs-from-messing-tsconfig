@@ -6,23 +6,23 @@
         "Next.js",
         "tsconfig"
     ],
-    "license": "MIT",
-    "author": "GoodbyeNJN <cc@fuckwall.cc>",
     "homepage": "https://github.com/GoodbyeNJN/stop-nextjs-from-messing-tsconfig",
     "bugs": {
         "url": "https://github.com/GoodbyeNJN/stop-nextjs-from-messing-tsconfig/issues"
     },
+    "license": "MIT",
+    "author": "GoodbyeNJN <cc@fuckwall.cc>",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/GoodbyeNJN/stop-nextjs-from-messing-tsconfig.git"
     },
-    "type": "module",
     "bin": {
         "stop-nextjs-from-messing-tsconfig": "bin/index.js"
     },
     "files": [
         "bin"
     ],
+    "type": "module",
     "scripts": {
         "dev": "rolldown -w -c",
         "build": "rolldown -c",
