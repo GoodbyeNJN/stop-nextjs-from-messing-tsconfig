@@ -24,17 +24,25 @@
         "bin"
     ],
     "scripts": {
-        "build": "rolldown -c rolldown.config.ts"
+        "dev": "rolldown -w -c",
+        "build": "rolldown -c",
+        "check": "tsgo && oxlint && oxfmt --check",
+        "check:type": "tsgo",
+        "lint": "oxlint",
+        "lint:fix": "oxlint --fix",
+        "format": "oxfmt --check",
+        "format:write": "oxfmt"
     },
     "dependencies": {
         "package-manager-detector": "^1.6.0"
     },
     "devDependencies": {
-        "@goodbyenjn/eslint-config": "^4.1.1",
+        "@goodbyenjn/configs": "^26.5.3",
         "@types/node": "^22.19.19",
-        "eslint": "^9.22.0",
-        "prettier": "^3.5.3",
-        "rolldown": "1.0.1",
-        "typescript": "^5.8.2"
+        "@typescript/native-preview": "7.0.0-dev.20260518.1",
+        "oxfmt": "^0.50.0",
+        "oxlint": "^1.65.0",
+        "oxlint-tsgolint": "^0.23.0",
+        "rolldown": "1.0.1"
     }
 }
