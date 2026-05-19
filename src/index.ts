@@ -38,6 +38,7 @@ const withPnpmPatchEnv: Runner = async (pkg, fn) => {
         process.exit(1);
     }
 
+    console.log(`⌛ Committing patch for package: ${pkg} ...`);
     await $(`pnpm patch-commit ${temp}`);
     await fsp.rm(temp, { recursive: true, force: true });
 
@@ -73,6 +74,7 @@ const withYarnPatchEnv: Runner = async (pkg, fn) => {
         process.exit(1);
     }
 
+    console.log(`⌛ Committing patch for package: ${pkg} ...`);
     await $(`yarn patch-commit -s ${temp}`);
 
     console.log("✅ Successfully patched files");
@@ -152,7 +154,10 @@ const patch: Patcher = async (pkg, temp) => {
         console.log(`⌛ Patching file: ${relative} ...`);
         try {
             const patched = patch.handler(content);
+            if (patched === content) continue;
+
             await fsp.writeFile(filepath, patched);
+            console.log(`✅ Successfully patched file: ${relative}`);
         } catch (error) {
             console.log(`❌ Failed to patch file`);
             throw error;
